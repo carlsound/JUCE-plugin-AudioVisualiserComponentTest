@@ -33,12 +33,13 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class WaveformComponent  : public Component,
+class WaveformComponent  : public 
                            AudioVisualiserComponent
 {
 public:
     //==============================================================================
-    WaveformComponent ();
+	WaveformComponent();
+	WaveformComponent (int initialNumChannels);
     ~WaveformComponent();
 
     //==============================================================================

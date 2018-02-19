@@ -27,7 +27,13 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-WaveformComponent::WaveformComponent ()
+WaveformComponent::WaveformComponent()
+{
+	//
+}
+
+
+WaveformComponent::WaveformComponent (int initialNumChannels)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -36,7 +42,7 @@ WaveformComponent::WaveformComponent ()
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (400, 300);
+    setSize (400, 150);
 
 
     //[Constructor] You can add your own custom stuff here..

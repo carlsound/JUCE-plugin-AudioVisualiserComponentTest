@@ -11,12 +11,13 @@
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "../3rdPartyLibraryCode/maximilian.h"
 
 
 //==============================================================================
 /**
 */
-class AudioVisualiserComponentTestAudioProcessor  : public AudioProcessor
+class AudioVisualiserComponentTestAudioProcessor : public AudioProcessor, Slider::Listener
 {
 public:
     //==============================================================================
@@ -56,7 +57,13 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+	//==============================================================================
+	void sliderValueChanged(Slider *slider);
+
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioVisualiserComponentTestAudioProcessor)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioVisualiserComponentTestAudioProcessor)
+
+	std::shared_ptr<maxiOsc> oscillator;
+	double frequency;
 };

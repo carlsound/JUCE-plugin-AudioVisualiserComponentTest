@@ -20,14 +20,14 @@
 //[Headers] You can add your own extra header files here...
 //[/Headers]
 
-#include "Sine1FrequencyComponent.h"
+#include "SineFrequencyComponent.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
 //[/MiscUserDefs]
 
 //==============================================================================
-Sine1FrequencyComponent::Sine1FrequencyComponent ()
+SineFrequencyComponent::SineFrequencyComponent ()
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -61,7 +61,7 @@ Sine1FrequencyComponent::Sine1FrequencyComponent ()
     //[/Constructor]
 }
 
-Sine1FrequencyComponent::~Sine1FrequencyComponent()
+SineFrequencyComponent::~SineFrequencyComponent()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
@@ -75,7 +75,7 @@ Sine1FrequencyComponent::~Sine1FrequencyComponent()
 }
 
 //==============================================================================
-void Sine1FrequencyComponent::paint (Graphics& g)
+void SineFrequencyComponent::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
@@ -86,7 +86,7 @@ void Sine1FrequencyComponent::paint (Graphics& g)
     //[/UserPaint]
 }
 
-void Sine1FrequencyComponent::resized()
+void SineFrequencyComponent::resized()
 {
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
@@ -95,7 +95,7 @@ void Sine1FrequencyComponent::resized()
     //[/UserResized]
 }
 
-void Sine1FrequencyComponent::sliderValueChanged (Slider* sliderThatWasMoved)
+void SineFrequencyComponent::sliderValueChanged (Slider* sliderThatWasMoved)
 {
     //[UsersliderValueChanged_Pre]
     //[/UsersliderValueChanged_Pre]
@@ -125,10 +125,10 @@ void Sine1FrequencyComponent::sliderValueChanged (Slider* sliderThatWasMoved)
 
 BEGIN_JUCER_METADATA
 
-<JUCER_COMPONENT documentType="Component" className="Sine1FrequencyComponent"
-                 componentName="" parentClasses="public Component" constructorParams=""
-                 variableInitialisers="" snapPixels="8" snapActive="1" snapShown="1"
-                 overlayOpacity="0.330" fixedSize="0" initialWidth="400" initialHeight="50">
+<JUCER_COMPONENT documentType="Component" className="SineFrequencyComponent" componentName=""
+                 parentClasses="public Component" constructorParams="" variableInitialisers=""
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
+                 fixedSize="0" initialWidth="400" initialHeight="50">
   <BACKGROUND backgroundColour="ff323e44"/>
   <LABEL name="new label" id="6a4adbe5585fe5bc" memberName="label" virtualName=""
          explicitFocusOrder="0" pos="49 25 150 24" edTextCol="ff000000"

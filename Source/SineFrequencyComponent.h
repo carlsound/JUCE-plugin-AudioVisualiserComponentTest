@@ -33,13 +33,13 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Sine1FrequencyComponent  : public Component,
-                                 public Slider::Listener
+class SineFrequencyComponent  : public Component,
+                                public Slider::Listener
 {
 public:
     //==============================================================================
-    Sine1FrequencyComponent ();
-    ~Sine1FrequencyComponent();
+    SineFrequencyComponent ();
+    ~SineFrequencyComponent();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
@@ -61,7 +61,7 @@ private:
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Sine1FrequencyComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SineFrequencyComponent)
 };
 
 //[EndFile] You can add extra defines here...

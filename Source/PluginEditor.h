@@ -12,6 +12,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
+#include "WaveformComponent.h"
+#include "SineFrequencyComponent.h"
 
 
 //==============================================================================
@@ -32,5 +34,8 @@ private:
     // access the processor object that created it.
     AudioVisualiserComponentTestAudioProcessor& processor;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioVisualiserComponentTestAudioProcessorEditor)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioVisualiserComponentTestAudioProcessorEditor)
+
+	WaveformComponent *waveform_component_;
+	SineFrequencyComponent *sine_frequency_component_;
 };

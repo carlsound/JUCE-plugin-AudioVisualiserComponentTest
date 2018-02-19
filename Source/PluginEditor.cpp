@@ -13,12 +13,18 @@
 
 
 //==============================================================================
-AudioVisualiserComponentTestAudioProcessorEditor::AudioVisualiserComponentTestAudioProcessorEditor (AudioVisualiserComponentTestAudioProcessor& p)
-    : AudioProcessorEditor (&p), processor (p)
+AudioVisualiserComponentTestAudioProcessorEditor::AudioVisualiserComponentTestAudioProcessorEditor(AudioVisualiserComponentTestAudioProcessor& p)
+	: AudioProcessorEditor(&p), processor(p)
 {
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
+	// Make sure that before the constructor has finished, you've set the
+	// editor's size to whatever you need it to be.
+	setSize(400, 300);
+	//
+	waveform_component_ = new WaveformComponent(2);
+	sine_frequency_component_ = new SineFrequencyComponent();
+	//
+	addAndMakeVisible(waveform_component_);
+	addAndMakeVisible(sine_frequency_component_);
 }
 
 AudioVisualiserComponentTestAudioProcessorEditor::~AudioVisualiserComponentTestAudioProcessorEditor()

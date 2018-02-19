@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT name="AudioVisualiserComponentTest" projectType="audioplug" buildStandalone="1"
-              jucerVersion="5.2.1">
+              jucerVersion="5.2.1" companyName="carlsound" buildVST="0" buildVST3="1"
+              pluginManufacturer="carlsound" pluginManufacturerCode="Crls"
+              pluginIsSynth="1" pluginWantsMidiIn="1">
   <MAINGROUP id="jpOeFi" name="AudioVisualiserComponentTest">
+    <GROUP id="{1122CB9F-F2A3-3E48-ABA1-B8BD357D6D30}" name="3rdPartyLibraryCode">
+      <FILE id="JJQy6h" name="maximilian.cpp" compile="1" resource="0" file="3rdPartyLibraryCode/maximilian.cpp"/>
+      <FILE id="SlkNba" name="maximilian.h" compile="0" resource="0" file="3rdPartyLibraryCode/maximilian.h"/>
+    </GROUP>
     <GROUP id="{CD934281-700A-B21E-BA50-0C1F4CEF2CD6}" name="Source">
       <FILE id="H0axGE" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
@@ -11,10 +17,10 @@
       <FILE id="uQtOVN" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="FgpTVD" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
-      <FILE id="jopOc8" name="Sine1FrequencyComponent.cpp" compile="1" resource="0"
-            file="Source/Sine1FrequencyComponent.cpp"/>
-      <FILE id="DurLCj" name="Sine1FrequencyComponent.h" compile="0" resource="0"
-            file="Source/Sine1FrequencyComponent.h"/>
+      <FILE id="jopOc8" name="SineFrequencyComponent.cpp" compile="1" resource="0"
+            file="Source/SineFrequencyComponent.cpp"/>
+      <FILE id="DurLCj" name="SineFrequencyComponent.h" compile="0" resource="0"
+            file="Source/SineFrequencyComponent.h"/>
       <FILE id="Bf5jr7" name="WaveformComponent.cpp" compile="1" resource="0"
             file="Source/WaveformComponent.cpp"/>
       <FILE id="YijIej" name="WaveformComponent.h" compile="0" resource="0"
@@ -47,22 +53,22 @@
     </VS2017>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
-            useGlobalPath="0"/>
-    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
   <JUCEOPTIONS/>
 </JUCERPROJECT>
