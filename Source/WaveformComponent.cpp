@@ -36,7 +36,7 @@ WaveformComponent::WaveformComponent ()
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (600, 400);
+    setSize (400, 300);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -91,9 +91,9 @@ void WaveformComponent::resized()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="WaveformComponent" componentName=""
-                 parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="0" initialWidth="600" initialHeight="400">
+                 parentClasses="public Component, AudioVisualiserComponent" constructorParams=""
+                 variableInitialisers="" snapPixels="8" snapActive="1" snapShown="1"
+                 overlayOpacity="0.330" fixedSize="0" initialWidth="400" initialHeight="300">
   <BACKGROUND backgroundColour="ff323e44"/>
 </JUCER_COMPONENT>
 
