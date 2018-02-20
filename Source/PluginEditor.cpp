@@ -20,7 +20,7 @@ AudioVisualiserComponentTestAudioProcessorEditor::AudioVisualiserComponentTestAu
 	// editor's size to whatever you need it to be.
 	setSize(400, 300);
 	//
-	waveform_component_ = new WaveformComponent(2);
+	waveform_component_ = new WaveformComponent();
 	sine_frequency_component_ = new SineFrequencyComponent();
 	//
 	addAndMakeVisible(waveform_component_);
@@ -39,7 +39,7 @@ void AudioVisualiserComponentTestAudioProcessorEditor::paint (Graphics& g)
 
     g.setColour (Colours::white);
     g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), Justification::centred, 1);
+    //g.drawFittedText ("Hello World!", getLocalBounds(), Justification::centred, 1);
 }
 
 void AudioVisualiserComponentTestAudioProcessorEditor::resized()

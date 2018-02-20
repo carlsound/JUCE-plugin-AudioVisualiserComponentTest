@@ -33,13 +33,11 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class WaveformComponent  : public 
-                           AudioVisualiserComponent
+class WaveformComponent  : public Component
 {
 public:
     //==============================================================================
-	WaveformComponent();
-	WaveformComponent (int initialNumChannels);
+    WaveformComponent ();
     ~WaveformComponent();
 
     //==============================================================================
@@ -53,6 +51,8 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+	int number_of_channels_;
+	std::shared_ptr<AudioVisualiserComponent> visualiser_component_;
     //[/UserVariables]
 
     //==============================================================================

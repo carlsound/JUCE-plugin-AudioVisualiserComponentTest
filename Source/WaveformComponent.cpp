@@ -27,13 +27,7 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-WaveformComponent::WaveformComponent()
-{
-	//
-}
-
-
-WaveformComponent::WaveformComponent (int initialNumChannels)
+WaveformComponent::WaveformComponent ()
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -46,6 +40,8 @@ WaveformComponent::WaveformComponent (int initialNumChannels)
 
 
     //[Constructor] You can add your own custom stuff here..
+	number_of_channels_ = 2;
+	visualiser_component_ = std::make_shared<AudioVisualiserComponent>(number_of_channels_);
     //[/Constructor]
 }
 
@@ -57,6 +53,7 @@ WaveformComponent::~WaveformComponent()
 
 
     //[Destructor]. You can add your own custom destruction code here..
+	visualiser_component_ = nullptr;
     //[/Destructor]
 }
 
@@ -69,6 +66,7 @@ void WaveformComponent::paint (Graphics& g)
     g.fillAll (Colour (0xff323e44));
 
     //[UserPaint] Add your own custom painting code here..
+	visualiser_component_->paint(g);
     //[/UserPaint]
 }
 
@@ -97,9 +95,9 @@ void WaveformComponent::resized()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="WaveformComponent" componentName=""
-                 parentClasses="public Component, AudioVisualiserComponent" constructorParams=""
-                 variableInitialisers="" snapPixels="8" snapActive="1" snapShown="1"
-                 overlayOpacity="0.330" fixedSize="0" initialWidth="400" initialHeight="300">
+                 parentClasses="public Component" constructorParams="" variableInitialisers=""
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
+                 fixedSize="0" initialWidth="400" initialHeight="150">
   <BACKGROUND backgroundColour="ff323e44"/>
 </JUCER_COMPONENT>
 
