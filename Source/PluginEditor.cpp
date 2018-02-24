@@ -25,7 +25,7 @@ AudioVisualiserComponentTestAudioProcessorEditor::AudioVisualiserComponentTestAu
 	//
 	p.setFrequencyHz(sine_frequency_component_->getFrequencyHz());
 	//
-	waveform_component_->setBuffer(p.getBuffer());
+	//waveform_component_->setBuffer(p.getBuffer());
 	//
 	addAndMakeVisible(waveform_component_);
 	addAndMakeVisible(sine_frequency_component_);
