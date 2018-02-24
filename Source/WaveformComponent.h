@@ -42,6 +42,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+	void setBuffer(AudioBuffer<float> &buffer);
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -52,7 +53,10 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 	int number_of_channels_;
+	int number_of_samples_;
 	std::shared_ptr<AudioVisualiserComponent> visualiser_component_;
+	//std::shared_ptr<AudioBuffer<float>> *audio_buffer_;
+	AudioBuffer<float> *audio_buffer_;
     //[/UserVariables]
 
     //==============================================================================

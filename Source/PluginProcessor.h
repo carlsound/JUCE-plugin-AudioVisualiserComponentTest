@@ -59,6 +59,7 @@ public:
 
 	//==============================================================================
 	void setFrequencyHz(float* frequency_hz);
+	AudioBuffer<float>& getBuffer();
 
 private:
     //==============================================================================
@@ -66,6 +67,9 @@ private:
 
 	std::shared_ptr<maxiOsc> oscillator_;
 	std::shared_ptr<maxiSettings> oscillator_settings_;
-	std::vector<float*> amplitude;
-	float* frequency;
+	std::vector<float*> amplitude_;
+	//std::shared_ptr<float*> frequency_;
+	float* frequency_;
+	//std::shared_ptr<AudioBuffer<float>> audio_buffer_;
+	AudioBuffer<float> *audio_buffer_;
 };

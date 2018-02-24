@@ -27,15 +27,19 @@ AudioVisualiserComponentTestAudioProcessor::AudioVisualiserComponentTestAudioPro
 {
 	oscillator_ = std::make_shared<maxiOsc>();
 	oscillator_settings_ = std::make_shared<maxiSettings>();
-	amplitude.clear();
-	frequency = 0;
+	amplitude_.clear();
+	float f = 0.0f;
+	//frequency_ = std::make_shared<float*>(0.0f);
+	frequency_ = &f;
+	audio_buffer_ = new AudioBuffer<float>();
 }
 
 AudioVisualiserComponentTestAudioProcessor::~AudioVisualiserComponentTestAudioProcessor()
 {
 	oscillator_ = nullptr;
 	oscillator_settings_ = nullptr;
-	amplitude.clear();
+	frequency_ = nullptr;
+	amplitude_.clear();
 }
 
 //==============================================================================
@@ -167,19 +171,22 @@ void AudioVisualiserComponentTestAudioProcessor::processBlock(AudioBuffer<float>
 		// ..do something to the data...
 	}
 	*/
-	amplitude.clear();
-	//oscillator_->
+	//
+	*audio_buffer_ = buffer;
+	//
+	amplitude_.clear();
 	//
 	for (int channel = 0; channel < totalNumOutputChannels; ++channel)
 	{
-		amplitude.push_back(buffer.getWritePointer(channel));
+		amplitude_.push_back(buffer.getWritePointer(channel));
 	}
 
 	for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
 	{
 		for (int channel = 0; channel < totalNumOutputChannels; ++channel)
 		{
-			amplitude[channel][sample] = oscillator_->sinewave(*frequency);
+			//amplitude_[channel][sample] = oscillator_->sinewave(**frequency_);
+			amplitude_[channel][sample] = oscillator_->sinewave(*frequency_);
 		}
 	}
 }
@@ -212,7 +219,13 @@ void AudioVisualiserComponentTestAudioProcessor::setStateInformation (const void
 //==============================================================================
 void AudioVisualiserComponentTestAudioProcessor::setFrequencyHz(float * frequency_hz)
 {
-	frequency = frequency_hz;
+	//*frequency_ = frequency_hz;
+	frequency_ = frequency_hz;
+}
+
+AudioBuffer<float>& AudioVisualiserComponentTestAudioProcessor::getBuffer()
+{
+	return *audio_buffer_;
 }
 
 //==============================================================================
