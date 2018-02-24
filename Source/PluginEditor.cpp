@@ -23,6 +23,8 @@ AudioVisualiserComponentTestAudioProcessorEditor::AudioVisualiserComponentTestAu
 	waveform_component_ = new WaveformComponent();
 	sine_frequency_component_ = new SineFrequencyComponent();
 	//
+	p.setFrequencyHz(sine_frequency_component_->getFrequencyHz());
+	//
 	addAndMakeVisible(waveform_component_);
 	addAndMakeVisible(sine_frequency_component_);
 }

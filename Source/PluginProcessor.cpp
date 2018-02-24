@@ -25,13 +25,17 @@ AudioVisualiserComponentTestAudioProcessor::AudioVisualiserComponentTestAudioPro
                        )
 #endif
 {
-	oscillator = std::make_shared<maxiOsc>();
+	oscillator_ = std::make_shared<maxiOsc>();
+	oscillator_settings_ = std::make_shared<maxiSettings>();
+	amplitude.clear();
 	frequency = 0;
 }
 
 AudioVisualiserComponentTestAudioProcessor::~AudioVisualiserComponentTestAudioProcessor()
 {
-	oscillator = nullptr;
+	oscillator_ = nullptr;
+	oscillator_settings_ = nullptr;
+	amplitude.clear();
 }
 
 //==============================================================================
@@ -101,6 +105,7 @@ void AudioVisualiserComponentTestAudioProcessor::prepareToPlay(double sampleRate
 {
 	// Use this method as the place to do any pre-playback
 	// initialisation that you need..
+	oscillator_settings_->sampleRate = sampleRate;
 }
 
 void AudioVisualiserComponentTestAudioProcessor::releaseResources()
@@ -162,11 +167,19 @@ void AudioVisualiserComponentTestAudioProcessor::processBlock(AudioBuffer<float>
 		// ..do something to the data...
 	}
 	*/
+	amplitude.clear();
+	//oscillator_->
+	//
+	for (int channel = 0; channel < totalNumOutputChannels; ++channel)
+	{
+		amplitude.push_back(buffer.getWritePointer(channel));
+	}
+
 	for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
 	{
 		for (int channel = 0; channel < totalNumOutputChannels; ++channel)
 		{
-			buffer.getWritePointer(channel)[sample] = oscillator->sinewave(frequency);
+			amplitude[channel][sample] = oscillator_->sinewave(*frequency);
 		}
 	}
 }
@@ -196,9 +209,10 @@ void AudioVisualiserComponentTestAudioProcessor::setStateInformation (const void
     // whose contents will have been created by the getStateInformation() call.
 }
 
-void AudioVisualiserComponentTestAudioProcessor::sliderValueChanged(Slider * slider)
+//==============================================================================
+void AudioVisualiserComponentTestAudioProcessor::setFrequencyHz(float * frequency_hz)
 {
-	frequency = slider->getValue();
+	frequency = frequency_hz;
 }
 
 //==============================================================================

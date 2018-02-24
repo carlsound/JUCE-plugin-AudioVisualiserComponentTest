@@ -102,7 +102,8 @@ void SineFrequencyComponent::sliderValueChanged (Slider* sliderThatWasMoved)
 
     if (sliderThatWasMoved == frequencySlider)
     {
-        //[UserSliderCode_frequencySlider] -- add your slider handling code here..
+        //[UserSliderCode_frequencySlider] -- add your slider handling code here.
+		frequency_hz_ = frequencySlider->getValue();
         //[/UserSliderCode_frequencySlider]
     }
 
@@ -113,6 +114,10 @@ void SineFrequencyComponent::sliderValueChanged (Slider* sliderThatWasMoved)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+float * SineFrequencyComponent::getFrequencyHz()
+{
+	return &frequency_hz_;
+}
 //[/MiscUserCode]
 
 

@@ -17,7 +17,7 @@
 //==============================================================================
 /**
 */
-class AudioVisualiserComponentTestAudioProcessor : public AudioProcessor, Slider::Listener
+class AudioVisualiserComponentTestAudioProcessor : public AudioProcessor
 {
 public:
     //==============================================================================
@@ -58,12 +58,14 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 	//==============================================================================
-	void sliderValueChanged(Slider *slider);
+	void setFrequencyHz(float* frequency_hz);
 
 private:
     //==============================================================================
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioVisualiserComponentTestAudioProcessor)
 
-	std::shared_ptr<maxiOsc> oscillator;
-	double frequency;
+	std::shared_ptr<maxiOsc> oscillator_;
+	std::shared_ptr<maxiSettings> oscillator_settings_;
+	std::vector<float*> amplitude;
+	float* frequency;
 };
