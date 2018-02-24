@@ -52,7 +52,9 @@ WaveformComponent::WaveformComponent ()
 	//visualiser_component_->setSamplesPerBlock(number_of_samples_);
 	setColours(Colours::black, Colours::white);
 	setRepaintRate(10);
-	setSamplesPerBlock(number_of_samples_);
+	//setSamplesPerBlock(number_of_samples_);
+	setSamplesPerBlock(256);
+	setBufferSize(1024);
 	//
 	//addAndMakeVisible(visualiser_component_);
     //[/Constructor]
@@ -77,9 +79,10 @@ void WaveformComponent::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xff323e44));
+    g.fillAll (Colours::cadetblue);
 
     //[UserPaint] Add your own custom painting code here..
+	setColours(Colours::black, Colours::white);
 	//visualiser_component_->pushBuffer(*audio_buffer_);
 	//pushBuffer(*audio_buffer_);
 	//paint(g);
@@ -125,7 +128,7 @@ void WaveformComponent::audioDeviceIOCallback(const float** inputChannelData, in
 			if (const float* inputChannel = inputChannelData[chan])
 				inputSample += inputChannel[i];  // find the sum of all the channels
 
-		inputSample *= 10.0f; // boost the level to make it more easily visible.
+		inputSample *= 1.0f; // boost the level to make it more easily visible.
 
 		pushSample(&inputSample, 1);
 	}
@@ -159,7 +162,7 @@ BEGIN_JUCER_METADATA
                  constructorParams="" variableInitialisers="AudioVisualiserComponent(2)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="400" initialHeight="150">
-  <BACKGROUND backgroundColour="ff323e44"/>
+  <BACKGROUND backgroundColour="ff5f9ea0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
