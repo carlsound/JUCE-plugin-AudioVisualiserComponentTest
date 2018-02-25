@@ -17,7 +17,7 @@
 //==============================================================================
 /**
 */
-class AudioVisualiserComponentTestAudioProcessor : public AudioProcessor
+class AudioVisualiserComponentTestAudioProcessor : public AudioProcessor, public ChangeBroadcaster
 {
 public:
     //==============================================================================
@@ -71,5 +71,5 @@ private:
 	//std::shared_ptr<float*> frequency_;
 	float* frequency_;
 	//std::shared_ptr<AudioBuffer<float>> audio_buffer_;
-	AudioBuffer<float> *audio_buffer_;
+	AudioBuffer<float> audio_buffer_;
 };

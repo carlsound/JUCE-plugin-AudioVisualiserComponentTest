@@ -33,8 +33,8 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class WaveformComponent  : public AudioVisualiserComponent,
-                           public AudioIODeviceCallback
+class WaveformComponent  : public Component,
+                           public ChangeListener
 {
 public:
     //==============================================================================
@@ -43,11 +43,11 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-	void audioDeviceAboutToStart(AudioIODevice*) override;
-	void audioDeviceStopped() override;
-	void audioDeviceIOCallback(const float** inputChannelData, int numInputChannels, float** outputChannelData, int numOutputChannels, int numberOfSamples) override;
 	//
 	void setBuffer(AudioBuffer<float> &buffer);
+	//
+	void changeListenerCallback(ChangeBroadcaster *source);
+	//
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -59,7 +59,7 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
 	int number_of_channels_;
 	int number_of_samples_;
-	//std::shared_ptr<AudioVisualiserComponent> visualiser_component_;
+	std::shared_ptr<AudioVisualiserComponent> visualiser_component_;
 	//std::shared_ptr<AudioBuffer<float>> *audio_buffer_;
 	AudioBuffer<float> *audio_buffer_;
     //[/UserVariables]

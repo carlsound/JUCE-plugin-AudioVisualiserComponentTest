@@ -27,11 +27,12 @@ AudioVisualiserComponentTestAudioProcessor::AudioVisualiserComponentTestAudioPro
 {
 	oscillator_ = std::make_shared<maxiOsc>();
 	oscillator_settings_ = std::make_shared<maxiSettings>();
+	//
 	amplitude_.clear();
 	float f = 0.0f;
 	//frequency_ = std::make_shared<float*>(0.0f);
 	frequency_ = &f;
-	audio_buffer_ = new AudioBuffer<float>();
+	audio_buffer_.clear(); //= new AudioBuffer<float>();
 }
 
 AudioVisualiserComponentTestAudioProcessor::~AudioVisualiserComponentTestAudioProcessor()
@@ -40,6 +41,7 @@ AudioVisualiserComponentTestAudioProcessor::~AudioVisualiserComponentTestAudioPr
 	oscillator_settings_ = nullptr;
 	frequency_ = nullptr;
 	amplitude_.clear();
+	audio_buffer_.clear();
 }
 
 //==============================================================================
@@ -172,7 +174,7 @@ void AudioVisualiserComponentTestAudioProcessor::processBlock(AudioBuffer<float>
 	}
 	*/
 	//
-	*audio_buffer_ = buffer;
+	//*audio_buffer_ = buffer;
 	//
 	amplitude_.clear();
 	//
@@ -188,7 +190,11 @@ void AudioVisualiserComponentTestAudioProcessor::processBlock(AudioBuffer<float>
 			//amplitude_[channel][sample] = oscillator_->sinewave(**frequency_);
 			amplitude_[channel][sample] = oscillator_->sinewave(*frequency_);
 		}
+		//sendChangeMessage();
 	}
+	//audio_buffer_ = new AudioBuffer<float>(buffer);
+	audio_buffer_ = buffer;
+	sendChangeMessage();
 }
 
 //==============================================================================
@@ -225,8 +231,9 @@ void AudioVisualiserComponentTestAudioProcessor::setFrequencyHz(float * frequenc
 
 AudioBuffer<float>& AudioVisualiserComponentTestAudioProcessor::getBuffer()
 {
-	return *audio_buffer_;
+	return audio_buffer_;
 }
+
 
 //==============================================================================
 // This creates new instances of the plugin..
